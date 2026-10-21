@@ -1,35 +1,28 @@
-﻿
-using System;
-using System.Drawing;
+﻿using System.Drawing;
 
 namespace ShapeApp
 {
     public class PieShape : Shape
     {
-        private readonly float startAngle;
-        private readonly float sweepAngle;
+        private readonly float _startAngle;   // эхлэх өнцөг
+        private readonly float _sweepAngle;   // хамрах өнцөг
 
-        public PieShape(Rectangle b, Color c)
-            : base(b, c)
+        public PieShape(Rectangle b, Color c) : base(b, c)
         {
-            startAngle = Rnd.Next(0, 360);
-            sweepAngle = Rnd.Next(45, 316);
+            _startAngle = Rnd.Next(0, 360);
+            _sweepAngle = Rnd.Next(60, 301);
         }
 
-        public override string Name
-        {
-            get { return "Pie"; }
-        }
+        public override string Name { get { return "Pie"; } }
 
         public override void Draw(Graphics g)
         {
-            using (Pen pen = MakePen())
-            using (Brush brush = MakeFill())
+            using (var fill = MakeFill())
+            using (var pen = MakePen())
             {
-                g.FillPie(brush, Bounds, startAngle, sweepAngle);
-                g.DrawPie(pen, Bounds, startAngle, sweepAngle);
+                g.FillPie(fill, Bounds, _startAngle, _sweepAngle);
+                g.DrawPie(pen, Bounds, _startAngle, _sweepAngle);
             }
-
             base.Draw(g);
         }
     }

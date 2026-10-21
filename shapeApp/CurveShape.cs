@@ -1,39 +1,31 @@
-﻿
-using System;
-using System.Drawing;
+﻿using System.Drawing;
 
 namespace ShapeApp
 {
     public class CurveShape : Shape
     {
-        private readonly Point[] points;
+        private readonly Point[] _points;
 
-        public CurveShape(Rectangle b, Color c)
-            : base(b, c)
+        public CurveShape(Rectangle b, Color c) : base(b, c)
         {
-            points = new Point[5];
-
-            for (int i = 0; i < points.Length; i++)
+            int n = 5;
+            _points = new Point[n];
+            for (int i = 0; i < n; i++)
             {
-                points[i] = new Point(
-                    X + i * Width / (points.Length - 1),
-                    Y + Rnd.Next(0, Math.Max(1, Height))
-                );
+                int px = X + i * Width / (n - 1);        // x тэнцүү зайтай
+                int py = Y + Rnd.Next(0, Height + 1);    // y санамсаргүй
+                _points[i] = new Point(px, py);
             }
         }
 
-        public override string Name
-        {
-            get { return "Curve"; }
-        }
+        public override string Name { get { return "Curve"; } }
 
         public override void Draw(Graphics g)
         {
-            using (Pen pen = MakePen())
+            using (var pen = MakePen())
             {
-                g.DrawCurve(pen, points);
+                g.DrawCurve(pen, _points);
             }
-
             base.Draw(g);
         }
     }

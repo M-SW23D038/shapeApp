@@ -1,29 +1,21 @@
-﻿
-using System.Drawing;
+﻿using System.Drawing;
 
 namespace ShapeApp
 {
     public class CircleShape : Shape
     {
-        public CircleShape(Rectangle b, Color c)
-            : base(b, c)
-        {
-        }
+        public CircleShape(Rectangle b, Color c) : base(b, c) { }
 
-        public override string Name
-        {
-            get { return "Дугуй"; }
-        }
+        public override string Name { get { return "Дугуй"; } }
 
         public override void Draw(Graphics g)
         {
-            using (Pen pen = MakePen())
-            using (Brush brush = MakeFill())
+            using (var fill = MakeFill())
+            using (var pen = MakePen())
             {
-                g.FillEllipse(brush, Bounds);
+                g.FillEllipse(fill, Bounds);
                 g.DrawEllipse(pen, Bounds);
             }
-
             base.Draw(g);
         }
     }
