@@ -70,5 +70,30 @@ namespace ShapeApp
         {
             canvas.Invalidate();
         }
+
+        private void rectangleMenuItem_Click(object sender, EventArgs e)
+        {
+            AddShape((b, c) => new RectangleShape(b, c));
+        }
+
+        private void circleMenuItem_Click(object sender, EventArgs e)
+        {
+            AddShape((b, c) => new CircleShape(b, c));
+        }
+
+        private void curveMenuItem_Click(object sender, EventArgs e)
+        {
+            AddShape((b, c) => new CurveShape(b, c));
+        }
+
+        private void polygonMenuItem_Click(object sender, EventArgs e)
+        {
+            AddShape((b, c) => new PolygonShape(b, c));
+        }
+
+        private void pieMenuItem_Click(object sender, EventArgs e)
+        {
+            AddShape((b, c) => new PieShape(b, c));
+        }
     }
 }

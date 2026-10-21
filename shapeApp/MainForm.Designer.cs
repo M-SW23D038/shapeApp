@@ -27,100 +27,140 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.shapeMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.lineMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.clearMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.canvasHost = new System.Windows.Forms.Panel();
-            this.canvas = new System.Windows.Forms.PictureBox();
-            this.menuStrip1.SuspendLayout();
-            this.canvasHost.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.canvas)).BeginInit();
-            this.SuspendLayout();
+            menuStrip1 = new MenuStrip();
+            shapeMenu = new ToolStripMenuItem();
+            rectangleMenuItem = new ToolStripMenuItem();
+            curveMenuItem = new ToolStripMenuItem();
+            polygonMenuItem = new ToolStripMenuItem();
+            pieMenuItem = new ToolStripMenuItem();
+            circleMenuItem = new ToolStripMenuItem();
+            lineMenuItem = new ToolStripMenuItem();
+            toolStripSeparator1 = new ToolStripSeparator();
+            clearMenuItem = new ToolStripMenuItem();
+            canvasHost = new Panel();
+            canvas = new PictureBox();
+            menuStrip1.SuspendLayout();
+            canvasHost.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)canvas).BeginInit();
+            SuspendLayout();
             // 
             // menuStrip1
             // 
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.shapeMenu});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(620, 28);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
+            menuStrip1.ImageScalingSize = new Size(20, 20);
+            menuStrip1.Items.AddRange(new ToolStripItem[] { shapeMenu });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Padding = new Padding(7, 3, 0, 3);
+            menuStrip1.Size = new Size(709, 30);
+            menuStrip1.TabIndex = 0;
+            menuStrip1.Text = "menuStrip1";
             // 
             // shapeMenu
             // 
-            this.shapeMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.lineMenuItem,
-            this.toolStripSeparator1,
-            this.clearMenuItem});
-            this.shapeMenu.Name = "shapeMenu";
-            this.shapeMenu.Size = new System.Drawing.Size(55, 24);
-            this.shapeMenu.Text = "Дүрс";
+            shapeMenu.DropDownItems.AddRange(new ToolStripItem[] { rectangleMenuItem, curveMenuItem, polygonMenuItem, pieMenuItem, circleMenuItem, lineMenuItem, toolStripSeparator1, clearMenuItem });
+            shapeMenu.Name = "shapeMenu";
+            shapeMenu.Size = new Size(56, 24);
+            shapeMenu.Text = "Дүрс";
+            // 
+            // rectangleMenuItem
+            // 
+            rectangleMenuItem.Name = "rectangleMenuItem";
+            rectangleMenuItem.Size = new Size(224, 26);
+            rectangleMenuItem.Text = "Тэгш өнцөгт";
+            rectangleMenuItem.Click += rectangleMenuItem_Click;
+            // 
+            // curveMenuItem
+            // 
+            curveMenuItem.Name = "curveMenuItem";
+            curveMenuItem.Size = new Size(224, 26);
+            curveMenuItem.Text = "Нум";
+            curveMenuItem.Click += curveMenuItem_Click;
+            // 
+            // polygonMenuItem
+            // 
+            polygonMenuItem.Name = "polygonMenuItem";
+            polygonMenuItem.Size = new Size(224, 26);
+            polygonMenuItem.Text = "Олон талт дүрс";
+            polygonMenuItem.Click += polygonMenuItem_Click;
+            // 
+            // pieMenuItem
+            // 
+            pieMenuItem.Name = "pieMenuItem";
+            pieMenuItem.Size = new Size(224, 26);
+            pieMenuItem.Text = "Дугуй график";
+            pieMenuItem.Click += pieMenuItem_Click;
+            // 
+            // circleMenuItem
+            // 
+            circleMenuItem.Name = "circleMenuItem";
+            circleMenuItem.Size = new Size(224, 26);
+            circleMenuItem.Text = "Дугуй";
+            circleMenuItem.Click += circleMenuItem_Click;
             // 
             // lineMenuItem
             // 
-            this.lineMenuItem.Name = "lineMenuItem";
-            this.lineMenuItem.Size = new System.Drawing.Size(180, 26);
-            this.lineMenuItem.Text = "Шулуун";
-            this.lineMenuItem.Click += new System.EventHandler(this.lineMenuItem_Click);
-            // 
-            // clearMenuItem
-            // 
-            this.clearMenuItem.Name = "clearMenuItem";
-            this.clearMenuItem.Size = new System.Drawing.Size(180, 26);
-            this.clearMenuItem.Text = "Цэвэрлэх";
-            this.clearMenuItem.Click += new System.EventHandler(this.clearMenuItem_Click);
+            lineMenuItem.Name = "lineMenuItem";
+            lineMenuItem.Size = new Size(224, 26);
+            lineMenuItem.Text = "Шулуун";
+            lineMenuItem.Click += lineMenuItem_Click;
             // 
             // toolStripSeparator1
             // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            toolStripSeparator1.Name = "toolStripSeparator1";
+            toolStripSeparator1.Size = new Size(221, 6);
+            // 
+            // clearMenuItem
+            // 
+            clearMenuItem.Name = "clearMenuItem";
+            clearMenuItem.Size = new Size(224, 26);
+            clearMenuItem.Text = "Цэвэрлэх";
+            clearMenuItem.Click += clearMenuItem_Click;
             // 
             // canvasHost
             // 
-            this.canvasHost.Controls.Add(this.canvas);
-            this.canvasHost.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.canvasHost.Location = new System.Drawing.Point(0, 28);
-            this.canvasHost.Name = "canvasHost";
-            this.canvasHost.Padding = new System.Windows.Forms.Padding(12);
-            this.canvasHost.Size = new System.Drawing.Size(620, 412);
-            this.canvasHost.TabIndex = 1;
+            canvasHost.Controls.Add(canvas);
+            canvasHost.Dock = DockStyle.Fill;
+            canvasHost.Location = new Point(0, 30);
+            canvasHost.Margin = new Padding(3, 4, 3, 4);
+            canvasHost.Name = "canvasHost";
+            canvasHost.Padding = new Padding(14, 16, 14, 16);
+            canvasHost.Size = new Size(709, 557);
+            canvasHost.TabIndex = 1;
             // 
             // canvas
             // 
-            this.canvas.BackColor = System.Drawing.Color.White;
-            this.canvas.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.canvas.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.canvas.Location = new System.Drawing.Point(12, 12);
-            this.canvas.Name = "canvas";
-            this.canvas.Size = new System.Drawing.Size(596, 388);
-            this.canvas.TabIndex = 0;
-            this.canvas.TabStop = false;
-            this.canvas.Paint += new System.Windows.Forms.PaintEventHandler(this.canvas_Paint);
-            this.canvas.Resize += new System.EventHandler(this.canvas_Resize);
+            canvas.BackColor = Color.White;
+            canvas.BorderStyle = BorderStyle.FixedSingle;
+            canvas.Dock = DockStyle.Fill;
+            canvas.Location = new Point(14, 16);
+            canvas.Margin = new Padding(3, 4, 3, 4);
+            canvas.Name = "canvas";
+            canvas.Size = new Size(681, 525);
+            canvas.TabIndex = 0;
+            canvas.TabStop = false;
+            canvas.Paint += canvas_Paint;
+            canvas.Resize += canvas_Resize;
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(620, 440);
-            this.Controls.Add(this.canvasHost);
-            this.Controls.Add(this.menuStrip1);
-            this.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.MainMenuStrip = this.menuStrip1;
-            this.MinimumSize = new System.Drawing.Size(400, 320);
-            this.Name = "MainForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Дасгал№2. Энгийн дүрсүүд зурах";
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
-            this.canvasHost.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.canvas)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(709, 587);
+            Controls.Add(canvasHost);
+            Controls.Add(menuStrip1);
+            Font = new Font("Segoe UI", 9F);
+            MainMenuStrip = menuStrip1;
+            Margin = new Padding(3, 4, 3, 4);
+            MinimumSize = new Size(455, 411);
+            Name = "MainForm";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Дасгал№2. Энгийн дүрсүүд зурах";
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
+            canvasHost.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)canvas).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
 
         }
 
@@ -133,5 +173,10 @@
         private System.Windows.Forms.ToolStripMenuItem clearMenuItem;
         private System.Windows.Forms.Panel canvasHost;
         private System.Windows.Forms.PictureBox canvas;
+        private ToolStripMenuItem rectangleMenuItem;
+        private ToolStripMenuItem circleMenuItem;
+        private ToolStripMenuItem pieMenuItem;
+        private ToolStripMenuItem curveMenuItem;
+        private ToolStripMenuItem polygonMenuItem;
     }
 }
